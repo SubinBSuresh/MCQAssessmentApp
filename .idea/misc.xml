@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/arrow_back.xml" value="0.3537037037037037" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/bookicon.xml" value="0.3537037037037037" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/custom_button2.xml" value="0.28055555555555556" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/activity_main.xml" value="0.22282608695652173" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/custom_mcq_dialog.xml" value="0.333786231884058" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/faculty_login_2.xml" value="0.22282608695652173" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/faculty_signup_4.xml" value="0.333786231884058" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/instuction_page_8.xml" value="0.25" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/landing_page_1.xml" value="0.22282608695652173" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_input_7.xml" value="0.333786231884058" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_section_9.xml" value="0.33" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/result_page.xml" value="0.333786231884058" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/result_page_10.xml" value="0.333786231884058" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/student_login_3.xml" value="0.22282608695652173" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/student_signup_5.xml" value="0.333786231884058" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

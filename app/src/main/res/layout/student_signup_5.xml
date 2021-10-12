@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentSignup_5">
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginTop="80dp"
+        >
+
+        <EditText
+            android:id="@+id/et_student_signUpName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Name"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+        <EditText
+            android:id="@+id/et_student_signUpEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Id"
+            android:layout_below="@id/et_student_signUpName"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/et_student_signUpPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_student_signUpEmail"
+            android:layout_marginTop="15dp"
+            android:hint="password"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/et_student_signUpConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_faculty_signUpPassword"
+            android:layout_marginTop="15dp"
+            android:hint="confirm password"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btn_studentSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_student_signUpConfirmPassword"
+            android:layout_marginTop="40dp"
+            android:text="Sign up"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
