@@ -35,6 +35,7 @@ public class QuestionSection_6 extends AppCompatActivity {
             public void onClick(View view) {
 
                 //Add assessment details to database
+                //Sent assessment name to the next page
                 startActivity(new Intent(getApplicationContext(),MCQQuestionInput_7.class));
             }
         });

@@ -10,13 +10,13 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"/>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="62dp"
-        android:layout_marginRight="62dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="80dp"
-        >
+        android:layout_marginRight="35dp">
 
         <EditText
             android:id="@+id/et_student_signUpName"
@@ -26,21 +26,22 @@
             android:hint="Name"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
+
         <EditText
             android:id="@+id/et_student_signUpEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email Id"
             android:layout_below="@id/et_student_signUpName"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"/>
+            android:layout_marginTop="45dp"
+            android:hint="Email Id"
+            android:padding="10dp" />
 
         <EditText
             android:id="@+id/et_student_signUpPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/et_student_signUpEmail"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="45dp"
             android:hint="password"
             android:padding="10dp" />
 
@@ -48,8 +49,8 @@
             android:id="@+id/et_student_signUpConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_faculty_signUpPassword"
-            android:layout_marginTop="15dp"
+            android:layout_below="@id/et_student_signUpPassword"
+            android:layout_marginTop="45dp"
             android:hint="confirm password"
             android:padding="10dp" />
 
@@ -58,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/et_student_signUpConfirmPassword"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="75dp"
             android:text="Sign up"
             android:textColor="@color/white" />
 

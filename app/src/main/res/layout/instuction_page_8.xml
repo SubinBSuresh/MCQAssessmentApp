@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InstuctionPage">
+    tools:context=".InstuctionPage_8">
     <TextView
         android:id="@+id/tv_insruction"
         android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
     <Button
         android:id="@+id/btnstart"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_margin="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="130dp"
@@ -44,9 +44,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
-        android:paddingLeft="50dp"
+        android:padding="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_insruction">
@@ -54,6 +54,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -70,6 +71,7 @@
                 android:id="@+id/tv_noOfQuestions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:text="TextView" />
         </LinearLayout>
@@ -77,6 +79,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -93,6 +96,7 @@
                 android:id="@+id/tv_totalTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:text="TextView" />
         </LinearLayout>
@@ -100,6 +104,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -116,6 +121,7 @@
                 android:id="@+id/tv_totalMark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:text="TextView" />
 
@@ -124,6 +130,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -140,6 +147,7 @@
                 android:id="@+id/tv_passMark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:text="TextView" />
         </LinearLayout>

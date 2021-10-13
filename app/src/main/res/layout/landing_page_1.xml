@@ -9,18 +9,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="58dp"
         android:orientation="vertical">
 
         <FrameLayout
             android:id="@+id/framelayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="250dp"
-                android:layout_height="120dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="93dp" />
+                android:background="@drawable/test" />
 
         </FrameLayout>
 
@@ -28,21 +32,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
-            android:layout_marginTop="36.7dp"
             android:layout_marginRight="62dp">
 
             <Button
                 android:id="@+id/btn_facultyLoginPage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="50dp"
                 android:text="FACULTY"
                 android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/btn_studentLoginPage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_below="@id/btn_facultyLoginPage"
                 android:layout_marginTop="60dp"
                 android:text="STUDENT"
