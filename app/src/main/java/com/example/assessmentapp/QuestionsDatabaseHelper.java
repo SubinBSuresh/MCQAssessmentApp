@@ -50,11 +50,11 @@ public class QuestionsDatabaseHelper extends SQLiteOpenHelper {
     }
 
     //SAVE MCQ
-    public void insertMCQData(String assessment_name, String mcq_question_no,String mcq_question, String option1, String option2, String option3, String option4, String correct_answer) {
+    public void insertMCQData(String assessment_name, String mcq_question_no, String mcq_question, String option1, String option2, String option3, String option4, String correct_answer) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(KEY_ASSESSMENT_NAME,assessment_name);
+        cv.put(KEY_ASSESSMENT_NAME, assessment_name);
         cv.put(KEY_QUESTION_NO, mcq_question_no);
         cv.put(KEY_QUESTION, mcq_question);
         cv.put(KEY_OPTION1, option1);

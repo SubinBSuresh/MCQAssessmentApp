@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FacultySignup_4">
+
     <ImageView
-    android:id="@+id/backArrow"
-    android:layout_width="100dp"
-    android:layout_height="50dp"
-    android:layout_marginTop="15dp"/>
+        android:id="@+id/backArrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/arrow_back" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -18,11 +20,22 @@
         android:layout_marginTop="80dp"
         android:layout_marginRight="35dp">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora"
+            android:gravity="center_horizontal"
+            android:text="Create an account"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/et_faculty_signUpName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="70dp"
             android:hint="Name"
             android:inputType="text"
             android:padding="10dp" />
@@ -43,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/et_faculty_signUpEmail"
             android:layout_marginTop="45dp"
-            android:hint="password"
+            android:hint="Passsword"
             android:padding="10dp" />
 
         <EditText
@@ -52,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/et_faculty_signUpPassword"
             android:layout_marginTop="45dp"
-            android:hint="confirm password"
+            android:hint="Confirm password"
             android:padding="10dp" />
 
         <Button
@@ -60,9 +73,17 @@
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_below="@id/et_faculty_signUpConfirmPassword"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="75dp"
+            android:layout_marginEnd="0dp"
+            android:backgroundTint="#1E2360"
+            android:elevation="8dp"
+            android:fontFamily="@font/cabin"
             android:text="Sign up"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:translationZ="2sp"
+            app:cornerRadius="30dp" />
 
     </RelativeLayout>
 

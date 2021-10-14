@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".StudentLogin_3">
 
     <LinearLayout
@@ -13,9 +14,11 @@
 
         <ImageView
             android:id="@+id/backArrow"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/arrow_back"
+            android:backgroundTint="#00E6B3" />
 
         <FrameLayout
             android:id="@+id/framelayout"
@@ -24,17 +27,20 @@
 
             <ImageView
                 android:id="@+id/book"
-                android:layout_width="250dp"
-                android:layout_height="120dp"
+                android:layout_width="230dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="40dp" />
+                android:layout_marginTop="40dp"
+                android:background="@drawable/student" />
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/comfortaa_bold"
                 android:text="Student Login"
+                android:textColor="@color/text_primary"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
@@ -51,7 +57,7 @@
                 android:id="@+id/et_student_loginEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="10dp" />
@@ -61,8 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_student_loginEmail"
-                android:layout_marginTop="30dp"
-                android:hint="password"
+                android:layout_marginTop="40dp"
+                android:hint="Password"
                 android:padding="10dp" />
 
             <Button
@@ -71,11 +77,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_student_loginPassword"
                 android:layout_marginLeft="210dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:background="#00FFFFFF"
                 android:text="Sign up"
                 android:textColor="#000000"
-                android:textSize="10dp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_student_login"
@@ -83,8 +89,15 @@
                 android:layout_height="65dp"
                 android:layout_below="@id/btn_student_signUp"
                 android:layout_marginTop="20dp"
+                android:backgroundTint="#00e6b3"
+                android:elevation="8dp"
+                android:fontFamily="@font/cabin"
                 android:text="Login"
-                android:textColor="@color/white" />
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:translationZ="2dp"
+                app:cornerRadius="30dp" />
 
         </RelativeLayout>
 

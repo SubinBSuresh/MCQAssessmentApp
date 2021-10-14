@@ -7,13 +7,15 @@
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/bookicon.xml" value="0.3537037037037037" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/custom_button2.xml" value="0.28055555555555556" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21614583333333334" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/background_gradient.xml" value="0.36923076923076925" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16197916666666667" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/textview_style.xml" value="0.3307291666666667" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/activity_main.xml" value="0.22282608695652173" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/custom_mcq_dialog.xml" value="0.333786231884058" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/faculty_login_2.xml" value="0.33" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/faculty_signup_4.xml" value="0.333786231884058" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/instuction_page_8.xml" value="0.25" />
-        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/landing_page_1.xml" value="0.25" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/landing_page_1.xml" value="0.33" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/layout_splash.xml" value="0.33" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_input_7.xml" value="0.333786231884058" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_section_9.xml" value="0.33" />

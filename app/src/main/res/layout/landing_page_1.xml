@@ -2,8 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_landing_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".LandingPage_1">
 
     <LinearLayout
@@ -21,10 +23,10 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/test" />
+                android:background="@drawable/front_image" />
 
         </FrameLayout>
 
@@ -39,8 +41,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="50dp"
+                android:backgroundTint="#D5FF643C"
+                android:elevation="7dp"
+                android:fontFamily="@font/lora"
                 android:text="FACULTY"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:translationZ="2dp"
+                app:cornerRadius="15dp" />
 
             <Button
                 android:id="@+id/btn_studentLoginPage"
@@ -48,8 +57,14 @@
                 android:layout_height="70dp"
                 android:layout_below="@id/btn_facultyLoginPage"
                 android:layout_marginTop="60dp"
+                android:backgroundTint="#00acdc"
+                android:elevation="7dp"
+                android:fontFamily="@font/lora"
                 android:text="STUDENT"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:translationZ="2dp"
+                app:cornerRadius="15dp" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

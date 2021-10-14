@@ -3,6 +3,8 @@ package com.example.assessmentapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ public class LandingPage_1 extends AppCompatActivity {
         btnStudentLoginPage =findViewById(R.id.btn_studentLoginPage);
         btnFacultyLoginPage =findViewById(R.id.btn_facultyLoginPage);
 
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.activity_slide_in);
         //Go to Student Login Page
         btnStudentLoginPage.setOnClickListener(new View.OnClickListener() {
             @Override

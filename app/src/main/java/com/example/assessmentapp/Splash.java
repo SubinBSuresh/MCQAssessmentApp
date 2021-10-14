@@ -31,6 +31,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 startActivity(new Intent(Splash.this, LandingPage_1.class));
+//                overridePendingTransition(R.anim.activity_slide_in,R.anim.activity_slide_in);
 
                 finish();
             }
