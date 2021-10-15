@@ -2,6 +2,8 @@ package com.example.assessmentapp;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -107,9 +109,10 @@ public class MCQQuestionInput_7 extends AppCompatActivity {
                 mcqQuestionCount = 1;
 
                 //Adding Custom dialog
-                Dialog submitDialog = new Dialog(getApplicationContext());
+                Dialog submitDialog = new Dialog(MCQQuestionInput_7.this);
                 submitDialog.setContentView(R.layout.custom_mcq_dialog);
                 submitDialog.setCancelable(false);
+                submitDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 submitDialog.show();
 
                 Button btnMCQCancel = submitDialog.findViewById(R.id.btn_faculty_MCQCancel);
