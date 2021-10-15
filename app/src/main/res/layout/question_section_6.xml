@@ -105,8 +105,10 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
+            android:backgroundTint="@color/button_colors"
             android:gravity="center"
-            android:text="Next" />
+            android:text="Next"
+            app:cornerRadius="30dp" />
 
 
 
