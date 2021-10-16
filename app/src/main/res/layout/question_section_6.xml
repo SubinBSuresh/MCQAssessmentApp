@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/primary_color">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +20,7 @@
             <ImageButton
                 android:id="@+id/img_previous"
                 android:layout_width="30dp"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
                 android:layout_gravity="top|left"
                 android:background="@drawable/arrow_back"
                 android:clickable="true" />
@@ -59,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/lora"
             android:gravity="center"
             android:text="Due Date"
             android:textColor="@color/text_primary"
@@ -69,7 +71,10 @@
             android:id="@+id/date_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            android:headerBackground="#6D6DD1"
+            android:translationZ="2dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,7 +100,7 @@
 
         </LinearLayout>
 
-            />
+        />
 
         <Button
             android:id="@+id/btn_goToQuestionInput"
@@ -105,10 +110,13 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
+            android:backgroundTint="#6D6DD1"
+            android:elevation="8dp"
+            android:fontFamily="@font/cabin_bold"
             android:gravity="center"
-            android:text="Next" />
-
-
+            android:text="Next"
+            android:translationZ="2dp"
+            app:cornerRadius="30dp" />
 
 
     </LinearLayout>

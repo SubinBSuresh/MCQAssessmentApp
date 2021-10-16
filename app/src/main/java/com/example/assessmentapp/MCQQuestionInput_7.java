@@ -54,7 +54,7 @@ public class MCQQuestionInput_7 extends AppCompatActivity {
         tvFacultyMCQNumber.setText(String.valueOf(mcqQuestionCount));
 
         //Getting the database name from previous page
-        String assessmentName = "Test";
+
 
         // Saving MCQ Questions one by one
         btnFacultyMCQOneQuestion.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +68,9 @@ public class MCQQuestionInput_7 extends AppCompatActivity {
                 mcqOption3 = etMCQOption3.getText().toString();
                 mcqOption4 = etMCQOption4.getText().toString();
                 mcqCorrectAnswer = etMCQCorrectAnswer.getText().toString();
+
+                Bundle extras = getIntent().getExtras();
+                assessmentName = extras.getString("AssessmentName");
 
                 //Checks, if there are any empty fields
                 if (mcqQuestion.equals("") || mcqOption1.equals("") || mcqOption2.equals("") || mcqOption3.equals("") || mcqOption4.equals("")) {
