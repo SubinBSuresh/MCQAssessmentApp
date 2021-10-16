@@ -43,7 +43,7 @@ public class MCQQuestionInput_7 extends AppCompatActivity {
         Button btnFacultyMCQAllQuestions = findViewById(R.id.btn_faculty_MCQAllQuestions);
 
         //Database Helper
-        final QuestionsDatabaseHelper mcqdbHelper = new QuestionsDatabaseHelper(this);
+        final MCQInputDatabaseHelper mcqdbHelper = new MCQInputDatabaseHelper(this);
 
 
         //Converting the question number to display on textview

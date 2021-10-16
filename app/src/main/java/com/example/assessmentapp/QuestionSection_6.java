@@ -8,8 +8,14 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class QuestionSection_6 extends AppCompatActivity {
 
@@ -17,6 +23,7 @@ public class QuestionSection_6 extends AppCompatActivity {
     EditText testName;
     EditText testDuration;
     Button btnNext;
+    DatePicker datePicker;
 
 
     @Override
@@ -28,6 +35,8 @@ public class QuestionSection_6 extends AppCompatActivity {
         testName =findViewById(R.id.et_testName);
         testDuration = findViewById(R.id.et_duration);
         btnNext = findViewById(R.id.btn_goToQuestionInput);
+        datePicker = findViewById(R.id.date_picker);
+
 
 
         btnNext.setOnClickListener(new View.OnClickListener() {

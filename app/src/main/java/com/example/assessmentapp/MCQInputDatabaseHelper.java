@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class QuestionsDatabaseHelper extends SQLiteOpenHelper {
+public class MCQInputDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String KEY_ASSESSMENT_NAME = "assessment_name";
     public static final String KEY_QUESTION_NO = "mcq_question_no";
@@ -33,7 +33,7 @@ public class QuestionsDatabaseHelper extends SQLiteOpenHelper {
 
 
     //CONSTRUCTOR
-    public QuestionsDatabaseHelper(@Nullable Context context) {
+    public MCQInputDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

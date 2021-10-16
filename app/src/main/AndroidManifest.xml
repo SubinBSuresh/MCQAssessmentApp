@@ -12,7 +12,6 @@
         <activity
             android:name=".FacultyLogin_2"
             android:exported="true" />
-
         <activity
             android:name=".StudentLogin_3"
             android:exported="true" />
@@ -38,6 +37,9 @@
             android:name=".ResultPage_10"
             android:exported="true" />
         <activity
+            android:name=".StudentDashboard_11"
+            android:exported="true" />
+        <activity
             android:name=".LandingPage_1"
             android:exported="true" />
         <activity
@@ -53,9 +55,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
-
-
 
 </manifest>

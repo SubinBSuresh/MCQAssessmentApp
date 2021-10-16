@@ -52,7 +52,7 @@ public class StudentLogin_3 extends AppCompatActivity {
             public void onClick(View v) {
                 //Check if the email and password matches in database
                 //If true only, go to question page
-                startActivity(new Intent(getApplicationContext(),InstuctionPage_8.class));
+                startActivity(new Intent(getApplicationContext(),StudentDashboard_11.class));
             }
         });
 
