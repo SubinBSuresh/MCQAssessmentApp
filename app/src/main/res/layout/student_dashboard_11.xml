@@ -5,43 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StudentDashboard_11">
+
     <ImageView
         android:id="@+id/image_student"
         android:layout_width="84dp"
         android:layout_height="82dp"
-        android:layout_marginEnd="223dp"
+        android:layout_marginEnd="284dp"
         android:layout_marginBottom="68dp"
         android:background="@drawable/ic_launcher_foreground"
         android:backgroundTint="#D83131"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toStartOf="@+id/btnback"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="74dp"
         android:layout_marginEnd="142dp"
-        android:layout_marginBottom="33dp"
+        android:fontFamily="@font/lora"
         android:text="Student Dashboard"
-        android:textSize="16sp"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Back"
+        android:background="@drawable/logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +51,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
         android:layout_height="564dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="17dp"
         android:background="@color/white"
         android:orientation="vertical"
@@ -59,34 +61,25 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_view">
 
         <TextView
-            android:id="@+id/tv_upcoming"
+            android:id="@+id/tv_assement_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upcoming Events" />
+            android:layout_marginLeft="10dp"
+            android:text="Assessment Details"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="normal" />
 
         <ListView
-            android:id="@+id/upcominglist"
+            android:id="@+id/lv_assessmentList"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="horizontal"
             android:weightSum="2">
 
         </ListView>
 
-        <TextView
-            android:id="@+id/tv_pastevent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Past Events" />
-
-        <ListView
-            android:id="@+id/pasteventlist"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:weightSum="2"></ListView>
 
     </LinearLayout>
 
