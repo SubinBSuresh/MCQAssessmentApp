@@ -1,103 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MCQQuestionSection_9">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp">
+        android:gravity="center"
+        android:text="MCQ"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_questionNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Qno"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/tv_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Question"
-            android:textSize="20sp" />
-
-    </LinearLayout>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="fill_parent"
+        android:layout_height="521dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="0dp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="79dp"
-        android:gravity="center_horizontal"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_mcqPrevious"
-            android:layout_width="150dp"
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="25dp"
-            android:text="Previous" />
+            android:layout_margin="10dp"
+            android:text="Save" />
 
         <Button
-            android:id="@+id/btn_mcqNext"
-            android:layout_width="150dp"
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_margin="10dp"
             android:text="Next" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp">
 
-        <RadioButton
-            android:id="@+id/rb_mcq_option1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#DAD1D1"
-            android:text="Option1" />
-
-        <RadioButton
-            android:id="@+id/rb_mcq_option2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#DAD1D1"
-            android:text="Option 2" />
-
-        <RadioButton
-            android:id="@+id/rb_mcq_option3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#DAD1D1"
-            android:text="Option3" />
-
-        <RadioButton
-            android:id="@+id/rb_mcq_option4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#DAD1D1"
-            android:text="Option4" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Assessment Name"
-        android:textSize="24sp" />
-
-</ScrollView>
+</LinearLayout>
