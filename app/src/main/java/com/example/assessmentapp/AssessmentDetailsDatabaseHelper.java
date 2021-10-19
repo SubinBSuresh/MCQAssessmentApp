@@ -13,9 +13,9 @@ import java.util.HashMap;
 
 public class AssessmentDetailsDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "DB_ASSESSMENT";
+    private static final String DATABASE_NAME = "currentdb";
     private static final String TABLE_NAME = "ASSESSMENT_DETAILS";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION =1;
 
     public static final String KEY_ASSESSMENT_NAME = "assessment_name_input";
     public static final String KEY_DUE_DATE = "due_date";

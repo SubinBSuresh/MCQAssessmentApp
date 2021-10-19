@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".FacultySignup_4">
 
     <ImageView
@@ -50,29 +51,58 @@
             android:inputType="textEmailAddress"
             android:padding="10dp" />
 
-        <EditText
-            android:id="@+id/et_faculty_signUpPassword"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_faculty_signup1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/et_faculty_signUpEmail"
-            android:layout_marginTop="45dp"
-            android:hint="Passsword"
-            android:padding="10dp" />
+            android:gravity="center"
+            app:boxStrokeColor="#00e6b3"
+            app:hintEnabled="false"
+            app:hintTextColor="#C8C8C8"
+            app:passwordToggleEnabled="true">
 
-        <EditText
-            android:id="@+id/et_faculty_signUpConfirmPassword"
+            <EditText
+                android:id="@+id/et_faculty_signUpPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_faculty_signUpEmail"
+                android:layout_marginTop="45dp"
+                android:background="@color/primary_color"
+                android:hint="Passsword"
+                android:padding="10dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_faculty_signup2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_faculty_signUpPassword"
-            android:layout_marginTop="45dp"
-            android:hint="Confirm password"
-            android:padding="10dp" />
+            android:layout_below="@id/password_faculty_signup1"
+            android:background="@color/primary_color"
+            android:gravity="center"
+            app:boxStrokeColor="#00e6b3"
+            app:hintEnabled="false"
+            app:hintTextColor="#C8C8C8"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/et_faculty_signUpConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_faculty_signUpPassword"
+                android:layout_marginTop="45dp"
+                android:background="@color/primary_color"
+                android:hint="Confirm password"
+                android:padding="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_facultySignUp"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:layout_below="@id/et_faculty_signUpConfirmPassword"
+            android:layout_below="@id/password_faculty_signup2"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="75dp"
             android:layout_marginEnd="0dp"
@@ -86,7 +116,6 @@
             app:cornerRadius="30dp" />
 
     </RelativeLayout>
-
 
 
 </RelativeLayout>

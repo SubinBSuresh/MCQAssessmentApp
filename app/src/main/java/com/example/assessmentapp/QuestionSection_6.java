@@ -48,7 +48,7 @@ public class QuestionSection_6 extends AppCompatActivity {
 
 
         //Database Helper
-        final AssessmentDetailsDatabaseHelper assessmentDetailsdbHelper = new AssessmentDetailsDatabaseHelper(this);
+        final TheHelper assessmentDetailsdbHelper = new TheHelper(this);
 
 
         btnNext.setOnClickListener(new View.OnClickListener() {

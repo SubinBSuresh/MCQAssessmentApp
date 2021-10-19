@@ -13,6 +13,10 @@ import java.util.HashMap;
 
 public class MCQInputDatabaseHelper extends SQLiteOpenHelper {
 
+    public static final String DATABASE_NAME = "currentdb";
+    private static final String TABLE_MCQ_QUESTIONS_INPUT = "MCQINPUT";
+    public static final int DATABASE_VERSION = 1;
+
     public static final String KEY_ASSESSMENTNAME = "assessment_name";
     public static final String KEY_QUESTION_NO = "mcq_question_no";
     public static final String KEY_QUESTION = "mcq_question";
@@ -22,9 +26,7 @@ public class MCQInputDatabaseHelper extends SQLiteOpenHelper {
     public static final String KEY_OPTION4 = "option4";
     public static final String KEY_CORRECTANSWER = "correct_answer";
 
-    private static final String DATABASE_NAME = "DB_ASSESSMENT";
-    private static final String TABLE_MCQ_QUESTIONS_INPUT = "MCQINPUT";
-    private static final int DATABASE_VERSION = 1;
+
 
     //CREATE TABLE
     private static final String CREATE_MCQ_TABLE = "CREATE TABLE " + TABLE_MCQ_QUESTIONS_INPUT + "(assessment_name text,mcq_question_no text,mcq_question text, option1 text, option2 text, option3 text, option4 text, correct_answer text)";
@@ -33,9 +35,8 @@ public class MCQInputDatabaseHelper extends SQLiteOpenHelper {
 
 
 
+
     private static final String TABLE_NAME = "ASSESSMENT_DETAILS";
-
-
     public static final String KEY_ASSESSMENT_NAME = "assessment_name_input";
     public static final String KEY_DUE_DATE = "due_date";
     public static final String KEY_DURATION = "duration";

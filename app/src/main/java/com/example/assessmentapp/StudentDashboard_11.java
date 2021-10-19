@@ -24,7 +24,7 @@ public class StudentDashboard_11 extends AppCompatActivity {
         //list on click move to instruction Page
 //        ListView assessmentlist=findViewById(R.id.assessmentList);
 
-        AssessmentDetailsDatabaseHelper dbHelper=new AssessmentDetailsDatabaseHelper(this);
+        TheHelper dbHelper=new TheHelper(this);
         ArrayList<HashMap<String,String>> AssessmentList=dbHelper.getAssessmentList();
         ListView listView=findViewById(R.id.lv_assessmentList);
         ListAdapter listAdapter=new SimpleAdapter(StudentDashboard_11.this,AssessmentList,R.layout.student_dashboard_listview,new String[]{"assessment_name_input","due_date","duration"},new int[]{R.id.tv_student_dashboardAssessmentName,R.id.tv_student_dashboardAssessmentDueDate,R.id.tv_student_dashboardAssessmentDuration} );
