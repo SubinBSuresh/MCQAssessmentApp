@@ -27,14 +27,6 @@ public class MCQQuestionSection_9 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mcq_question_section_9);
 
-        btnMcqnext = findViewById(R.id.btn_mcqNext);
-        btnMcqPrevious = findViewById(R.id.btn_mcqPrevious);
-        option1 = findViewById(R.id.rb_mcq_option1);
-        option2 = findViewById(R.id.rb_mcq_option2);
-        option3 = findViewById(R.id.rb_mcq_option3);
-        option4 = findViewById(R.id.rb_mcq_option4);
-        question = findViewById(R.id.tv_question);
-        questionNo = findViewById(R.id.tv_questionNo);
 
         //Next question
         btnMcqnext.setOnClickListener(new View.OnClickListener() {
