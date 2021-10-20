@@ -40,6 +40,9 @@
             android:name=".StudentDashboard_11"
             android:exported="true" />
         <activity
+            android:name=".FacultyDashboard_12"
+            android:exported="true" />
+        <activity
             android:name=".LandingPage_1"
             android:exported="true" />
         <activity

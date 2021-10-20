@@ -23,6 +23,7 @@ public class StudentLogin_3 extends AppCompatActivity {
 
     SharedPreferences sp1;
 
+    String studentName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,8 @@ public class StudentLogin_3 extends AppCompatActivity {
                 }else{
                     Boolean resultLogin = db1.checkStudentUsernamePassword(email,password);
                     if (resultLogin==true){
-                        goToMain();
+                        studentName = db1.getStudentName(email);
+                        goToMain(studentName);
                         sp1.edit().putBoolean("logged",true).apply();
                         finish();
                     }else{
@@ -73,8 +75,10 @@ public class StudentLogin_3 extends AppCompatActivity {
         });
 
     }
-    private void goToMain() {
-        startActivity(new Intent(getApplicationContext(),StudentDashboard_11.class));
+    private void goToMain(String name) {
+        Intent intent = new Intent(getApplicationContext(),StudentDashboard_11.class);
+        intent.putExtra("Student Name",name);
+        startActivity(intent);
         finish();
     }
 }

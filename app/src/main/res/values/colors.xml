@@ -16,4 +16,5 @@
     <color name="accent_color">#4C4C6D</color>
     <color name="text_primary">@color/black</color>
     <color name="text_secondary">@color/white</color>
+    <color name="button_primary">#6D6DD1</color>
 </resources>

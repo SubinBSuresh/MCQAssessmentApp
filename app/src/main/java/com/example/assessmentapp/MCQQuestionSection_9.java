@@ -2,18 +2,20 @@ package com.example.assessmentapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MCQQuestionSection_9 extends AppCompatActivity {
 
-    private Button btnMcqnext;
-    private Button btnMcqPrevious;
     private Button btnSubmit;
     private RadioButton option1;
     private RadioButton option2;
@@ -22,33 +24,36 @@ public class MCQQuestionSection_9 extends AppCompatActivity {
     private TextView question;
     private TextView questionNo;
 
+    Integer questionCount=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mcq_question_section_9);
 
+        Button btnSubmit = findViewById(R.id.btn_saveAssessment);
+        RadioGroup radioGroup = findViewById(R.id.answer);
+        RadioButton radioButton1 = findViewById(R.id.answer1);
+        RadioButton radioButton2 = findViewById(R.id.answer2);
+        RadioButton radioButton3 = findViewById(R.id.answer3);
+        RadioButton radioButton4 = findViewById(R.id.answer4);
 
-        //Next question
-        btnMcqnext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Display new questions
-                //After all question, make the Button text as submit
-                //Go to result page
-                startActivity(new Intent(getApplicationContext(),ResultPage_10.class));
-            }
-        });
+        Bundle extras = getIntent().getExtras();
+        String assessmentMCQName = extras.getString("AssessmentName");
 
-        //Previous question
-        btnMcqPrevious.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //display previous question
-            }
-        });
+        questionNo = findViewById(R.id.QuestionNumber);
 
+        TheHelper dbHelper = new TheHelper(this);
+        ArrayList<HashMap<String,String>> mcqQuestions = dbHelper.getMCQData(assessmentMCQName);
 
+        ListView questionListView = findViewById(R.id.lv_faculty_assessmentList);
+        ListAdapter listAdapter = new SimpleAdapter(getApplicationContext(),mcqQuestions, R.layout.mcq_question_listview,new String[]{
+                "mcq_question",
+                "option1",
+                "option2",
+                "option3",
+                "option4"
+        }, new int[]{R.id.question,R.id.answer1,R.id.answer2,R.id.answer3,R.id.answer4});
+
+        questionListView.setAdapter(listAdapter);
     }
-
-
 }

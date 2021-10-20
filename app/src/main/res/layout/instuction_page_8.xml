@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".InstuctionPage_8">
 
     <TextView
@@ -33,9 +34,14 @@
         android:layout_marginTop="130dp"
         android:layout_marginEnd="49dp"
         android:layout_marginBottom="341dp"
+        android:backgroundTint="@color/button_primary"
+        android:elevation="10dp"
+        android:fontFamily="@font/cabin_bold"
         android:gravity="center"
         android:text="Start"
         android:textAlignment="center"
+        android:translationZ="2dp"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

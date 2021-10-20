@@ -71,7 +71,7 @@ public class FacultyLogin_2 extends AppCompatActivity {
         }
 
         private void goToMain() {
-            startActivity(new Intent(getApplicationContext(), QuestionSection_6.class));
+            startActivity(new Intent(getApplicationContext(), FacultyDashboard_12.class));
             finish();
         }
 

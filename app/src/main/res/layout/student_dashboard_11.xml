@@ -8,12 +8,12 @@
 
     <ImageView
         android:id="@+id/image_student"
-        android:layout_width="84dp"
-        android:layout_height="82dp"
-        android:layout_marginEnd="284dp"
-        android:layout_marginBottom="68dp"
-        android:background="@drawable/ic_launcher_foreground"
-        android:backgroundTint="#D83131"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="320dp"
+        android:background="@drawable/user"
+        android:backgroundTint="#6E6767"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toStartOf="@+id/btnback"
@@ -65,13 +65,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
             android:text="Assessment Details"
             android:textColor="@color/text_primary"
             android:textSize="16sp"
             android:textStyle="normal" />
 
         <ListView
-            android:id="@+id/lv_assessmentList"
+            android:id="@+id/lv_student_assessmentList"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -82,5 +83,14 @@
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_studentNameDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/text_primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_student" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

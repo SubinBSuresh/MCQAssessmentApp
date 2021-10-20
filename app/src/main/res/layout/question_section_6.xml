@@ -26,7 +26,7 @@
                 android:clickable="true" />
 
             <TextView
-                android:id="@+id/tv_title"
+                android:id="@+id/tv_assessmentName_facultyDashboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"

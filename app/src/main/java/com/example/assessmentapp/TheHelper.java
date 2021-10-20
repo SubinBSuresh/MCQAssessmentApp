@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class TheHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "CURRENT_DATABASE";
+    public static final String DATABASE_NAME = "FINAL_DATABASE";
     public static final int DATABASE_VERSION = 1;
 
 
@@ -34,8 +34,6 @@ public class TheHelper extends SQLiteOpenHelper {
     private static final String DROP_MCQ_TABLE = "DROP TABLE IF EXISTS " + TABLE_MCQ_QUESTIONS_INPUT;
 
 
-
-
     //ASSESSMENT DETAILS
     private static final String TABLE_NAME = "ASSESSMENT_DETAILS";
     public static final String KEY_ASSESSMENT_NAME = "assessment_name_input";
@@ -46,7 +44,6 @@ public class TheHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(assessment_name_input text, due_date text, duration text)";
     //DROP TABLE
     private static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
-
 
 
     //STUDENT DETAILS
@@ -72,6 +69,18 @@ public class TheHelper extends SQLiteOpenHelper {
     private static final String CREATE_FACULTY_TABLE = "CREATE TABLE " + FACULTY_TABLE_NAME + "(username text,email text,password text)";
     //Drop Table
     private static final String DROP_FACULTY_TABLE = "DROP TABLE IF EXISTS " + FACULTY_TABLE_NAME;
+    private Object String;
+
+
+    //Student mark details
+    private static final String MARK_LIST_TABLE = "MARKLIST";
+    public static final String STUDENT_EMAIL = "student_email";
+    public static final String STUDENT_ASSESSMENT = "student_assessment";
+    public static final String STUDENT_MARKS = "student_marks";
+    //CREATE TABLE
+    private static final String CREATE_STUDENT_MARKLIST = "CREATE TABLE "+MARK_LIST_TABLE+"( student_email,student_assessment,student_marks)";
+    //DROP TABLE
+    private static final String DROP_STUDENT_MARKLIST = "DROP TABLE IF EXISTS "+MARK_LIST_TABLE;
 
 
     //CONSTRUCTOR
@@ -86,6 +95,7 @@ public class TheHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_TABLE);
         sqLiteDatabase.execSQL(CREATE_TABLE_STUDENT);
         sqLiteDatabase.execSQL(CREATE_FACULTY_TABLE);
+        sqLiteDatabase.execSQL(CREATE_STUDENT_MARKLIST);
     }
 
     // ON UPGRADE
@@ -95,10 +105,10 @@ public class TheHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(DROP_TABLE);
         sqLiteDatabase.execSQL(DROP_TABLE_STUDENT);
         sqLiteDatabase.execSQL(DROP_FACULTY_TABLE);
+        sqLiteDatabase.execSQL(DROP_STUDENT_MARKLIST);
 
         onCreate(sqLiteDatabase);
     }
-
 
 
 //<-----------------------------------------------------------------Subin--------------------------------------------------->
@@ -123,32 +133,29 @@ public class TheHelper extends SQLiteOpenHelper {
 
 
     //SAVE MCQ
-    public ArrayList<HashMap<String, String>> getMCQData() {
+    public ArrayList<HashMap<String, String>> getMCQData(String assessmentName) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         ArrayList<HashMap<String, String>> mcqQuestions = new ArrayList<>();
 
+//        String query = "select mcq_question,option1,option2, option3,option4, correct_answer from " + TABLE_MCQ_QUESTIONS_INPUT+ " where "+KEY_ASSESSMENTNAME+ " = " + assessmentName;
+//        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
-        String query = "select mcq_question, option1,option2,option3,option4, correct_answer from " + TABLE_MCQ_QUESTIONS_INPUT;
-        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        Cursor cursor = sqLiteDatabase.query(TABLE_MCQ_QUESTIONS_INPUT,new String[]{KEY_QUESTION,KEY_OPTION1,KEY_OPTION2,KEY_OPTION3,KEY_OPTION4,KEY_CORRECTANSWER}, KEY_ASSESSMENTNAME+"=?",new String[]{assessmentName},null,null,null,null);
+
 
         while ((cursor.moveToNext())) {
             HashMap<String, String> mcqData = new HashMap<>();
 
-            mcqData.put(KEY_QUESTION_NO, cursor.getString(0));
-            mcqData.put(KEY_QUESTION, cursor.getString(1));
-            mcqData.put(KEY_OPTION1, cursor.getString(2));
-            mcqData.put(KEY_OPTION2, cursor.getString(3));
-            mcqData.put(KEY_OPTION3, cursor.getString(4));
-            mcqData.put(KEY_OPTION4, cursor.getString(5));
-            mcqData.put(KEY_CORRECTANSWER, cursor.getString(6));
-
+            mcqData.put(KEY_QUESTION, cursor.getString(0));
+            mcqData.put(KEY_OPTION1, cursor.getString(1));
+            mcqData.put(KEY_OPTION2, cursor.getString(2));
+            mcqData.put(KEY_OPTION3, cursor.getString(3));
+            mcqData.put(KEY_OPTION4, cursor.getString(4));
+            mcqData.put(KEY_CORRECTANSWER, cursor.getString(5));
             mcqQuestions.add(mcqData);
         }
         return mcqQuestions;
     }
-
-
-
 
     //<-----------------------------------------------------------------Tineesha--------------------------------------------------->
     //save assessment details
@@ -164,84 +171,109 @@ public class TheHelper extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, cv);
     }
 
-
     //Retrieve Assessment details
-    public ArrayList<HashMap<String,String>> getAssessmentList(){
-        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        ArrayList<HashMap<String,String>> assessmentList=new ArrayList<>();
+    public ArrayList<HashMap<String, String>> getAssessmentList() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ArrayList<HashMap<String, String>> assessmentList = new ArrayList<>();
 
-        String query="select assessment_name_input,due_date,duration from " +TABLE_NAME;
-        Cursor cursor=sqLiteDatabase.rawQuery(query,null);
-        while (cursor.moveToNext()){
-            HashMap<String,String> assessment=new HashMap<>();
-            assessment.put(KEY_ASSESSMENT_NAME,cursor.getString(0));
-            assessment.put(KEY_DUE_DATE,cursor.getString(1));
-            assessment.put(KEY_DURATION,cursor.getString(2));
+        String query = "select assessment_name_input,due_date,duration from " + TABLE_NAME;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            HashMap<String, String> assessment = new HashMap<>();
+            assessment.put(KEY_ASSESSMENT_NAME, cursor.getString(0));
+            assessment.put(KEY_DUE_DATE, cursor.getString(1));
+            assessment.put(KEY_DURATION, cursor.getString(2));
             assessmentList.add(assessment);
         }
         return assessmentList;
     }
 
-
-
-
-
-
-
 //<-----------------------------------------------------------------Akash--------------------------------------------------->
 
-    public Boolean insertStudentData(String username, String email, String password){
+    public Boolean insertStudentData(String username, String email, String password) {
         SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_STUDENT_USERNAME,username);
-        contentValues.put(KEY_STUDENT_EMAIL,email);
-        contentValues.put(KEY_STUDENT_PASSWORD,password);
-        long result = myDB.insert(STUDENT_TABLE_NAME,null,contentValues);
-
+        contentValues.put(KEY_STUDENT_USERNAME, username);
+        contentValues.put(KEY_STUDENT_EMAIL, email);
+        contentValues.put(KEY_STUDENT_PASSWORD, password);
+        long result = myDB.insert(STUDENT_TABLE_NAME, null, contentValues);
         return result != -1;
+    }
 
-    }
-    public Boolean checkStudentUsername(String emailCheck){
+    public Boolean checkStudentUsername(String emailCheck) {
         SQLiteDatabase myDB = this.getReadableDatabase();
-        Cursor cursor = myDB.rawQuery("SELECT email FROM "+ STUDENT_TABLE_NAME+" WHERE email = ? ",new String[]{emailCheck});
-        return cursor.getCount() > 0;
-    }
-    public Boolean checkStudentUsernamePassword(String email, String password){
-        SQLiteDatabase myDB = this.getReadableDatabase();
-        Cursor cursor = myDB.rawQuery("SELECT email,password FROM "+ STUDENT_TABLE_NAME +" WHERE email = ? AND password = ?",new String[]{email,password});
+        Cursor cursor = myDB.rawQuery("SELECT email FROM " + STUDENT_TABLE_NAME + " WHERE email = ? ", new String[]{emailCheck});
         return cursor.getCount() > 0;
     }
 
+    public Boolean checkStudentUsernamePassword(String email, String password) {
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("SELECT email,password FROM " + STUDENT_TABLE_NAME + " WHERE email = ? AND password = ?", new String[]{email, password});
+        return cursor.getCount() > 0;
+    }
+
+    public String getStudentName(String email) {
+        String name = "";
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("SELECT username FROM " + STUDENT_TABLE_NAME + " WHERE email = ?", new String[]{email});
+        while (cursor.moveToNext()) {
+            name = cursor.getString(0);
+        }
+        return name;
+    }
 
 
 //<-----------------------------------------------------------------kEVIN--------------------------------------------------->
 
-    public Boolean insertFacultyData(String username, String email, String password){
+    public Boolean insertFacultyData(String username, String email, String password) {
         SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_USERNAME,username);
-        contentValues.put(KEY_EMAIL,email);
-        contentValues.put(KEY_PASSWORD,password);
-        long result = myDB.insert(FACULTY_TABLE_NAME,null,contentValues);
-
+        contentValues.put(KEY_USERNAME, username);
+        contentValues.put(KEY_EMAIL, email);
+        contentValues.put(KEY_PASSWORD, password);
+        long result = myDB.insert(FACULTY_TABLE_NAME, null, contentValues);
         return result != -1;
+    }
 
-    }
-    public Boolean checkFacultyUsername(String emailCheck){
+    public Boolean checkFacultyUsername(String emailCheck) {
         SQLiteDatabase myDB = this.getReadableDatabase();
-        Cursor cursor = myDB.rawQuery("SELECT email FROM "+ FACULTY_TABLE_NAME+" WHERE email = ? ",new String[]{emailCheck});
-        return cursor.getCount() > 0;
-    }
-    public Boolean checkFacultyUsernamePassword(String email, String password){
-        SQLiteDatabase myDB = this.getReadableDatabase();
-        Cursor cursor = myDB.rawQuery("SELECT email,password FROM "+FACULTY_TABLE_NAME+" WHERE email = ? AND password = ?",new String[]{email,password});
+        Cursor cursor = myDB.rawQuery("SELECT email FROM " + FACULTY_TABLE_NAME + " WHERE email = ? ", new String[]{emailCheck});
         return cursor.getCount() > 0;
     }
 
+    public Boolean checkFacultyUsernamePassword(String email, String password) {
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("SELECT email,password FROM " + FACULTY_TABLE_NAME + " WHERE email = ? AND password = ?", new String[]{email, password});
 
+        return cursor.getCount() > 0;
+    }
+    //<-----------------------------------------------------------------Subin--------------------------------------------------->
 
+    public void insertStudentMarklist(String email, String assessmentName, String marks) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
 
+        cv.put(STUDENT_EMAIL, email);
+        cv.put(STUDENT_ASSESSMENT, assessmentName);
+        cv.put(STUDENT_MARKS, marks);
 
+        //Insert new row in database
+        db.insert(MARK_LIST_TABLE, null, cv);
+    }
 
+    //Retrieve Assessment details
+    public ArrayList<HashMap<String, String>> getStudentMarklist(String assessmentName) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ArrayList<HashMap<String, String>> marksList = new ArrayList<>();
 
+        String query = "select student_email,student_marks from " + MARK_LIST_TABLE+" where student_assessment = "+ assessmentName;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            HashMap<String, String> marks = new HashMap<>();
+            marks.put(STUDENT_EMAIL, cursor.getString(0));
+            marks.put(STUDENT_MARKS, cursor.getString(1));
+            marksList.add(marks);
+        }
+        return marksList;
+    }
 }
