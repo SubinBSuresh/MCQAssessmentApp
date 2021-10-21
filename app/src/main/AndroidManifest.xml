@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AssessmentApp">
         <activity
+            android:name=".MainAssessmentPage"
+            android:exported="false" />
+        <activity
             android:name=".FacultyLogin_2"
             android:exported="true" />
         <activity
@@ -31,9 +34,6 @@
             android:name=".InstuctionPage_8"
             android:exported="true" />
         <activity
-            android:name=".MCQQuestionSection_9"
-            android:exported="true" />
-        <activity
             android:name=".ResultPage_10"
             android:exported="true" />
         <activity
@@ -45,6 +45,7 @@
         <activity
             android:name=".LandingPage_1"
             android:exported="true" />
+
         <activity
             android:name=".Splash"
             android:exported="true">

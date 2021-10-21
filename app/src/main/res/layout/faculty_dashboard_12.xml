@@ -39,7 +39,7 @@
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/iv_dialog"
+                android:id="@+id/ib_faculty_logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|left"
@@ -75,6 +75,8 @@
             android:id="@+id/lv_faculty_assessmentList"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="50dp" />
 
 

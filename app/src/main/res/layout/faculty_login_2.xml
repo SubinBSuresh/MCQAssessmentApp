@@ -84,6 +84,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@color/primary_color"
                     android:hint="Password"
+                    android:inputType="textPassword"
                     android:padding="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
 

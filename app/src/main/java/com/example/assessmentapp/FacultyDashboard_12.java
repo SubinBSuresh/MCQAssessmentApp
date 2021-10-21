@@ -6,16 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FacultyDashboard_12 extends AppCompatActivity {
 
-    ListView listView;
+    ImageButton facultyLogout;
     Button btnNew;
 
     @Override
@@ -23,6 +25,7 @@ public class FacultyDashboard_12 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faculty_dashboard_12);
 
+        facultyLogout = findViewById(R.id.ib_faculty_logout);
         btnNew = findViewById(R.id.btn_new);
 
         TheHelper dbHelper=new TheHelper(this);
@@ -36,6 +39,14 @@ public class FacultyDashboard_12 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), QuestionSection_6.class));
+            }
+        });
+
+        facultyLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Logging out", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),FacultyLogin_2.class));
             }
         });
     }

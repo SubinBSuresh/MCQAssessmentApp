@@ -3,19 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/KOTLIN/MCQAssessmentApp/app/src/main/res/drawable/dashboard_listview.xml" value="0.26614583333333336" />
-        <entry key="..\:/KOTLIN/MCQAssessmentApp/app/src/main/res/layout/student_dashboard_11.xml" value="0.264" />
-        <entry key="..\:/KOTLIN/MCQAssessmentApp/app/src/main/res/layout/student_dashboard_listview.xml" value="0.4" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/arrow_back.xml" value="0.3537037037037037" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/bookicon.xml" value="0.3537037037037037" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/custom_button2.xml" value="0.28055555555555556" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21614583333333334" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/background_gradient.xml" value="0.36923076923076925" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/dashboard_listview.xml" value="0.3527777777777778" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/dialog_style.xml" value="0.36923076923076925" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16197916666666667" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/mcq_input_style.xml" value="0.36923076923076925" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/drawable/textview_style.xml" value="0.3307291666666667" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/activity_main.xml" value="0.22282608695652173" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/activity_main_assessment_page.xml" value="0.3220108695652174" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/activity_quiz_page_test.xml" value="0.3061594202898551" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/custom_faculty_listview.xml" value="0.5" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/custom_mcq_dialog.xml" value="0.33" />
@@ -28,8 +27,8 @@
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/layout_splash.xml" value="0.33" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_Question_student.xml" value="0.35885416666666664" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_input_7.xml" value="0.33" />
-        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_listview.xml" value="0.33" />
-        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_section_9.xml" value="0.33" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_listview.xml" value="0.5" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/mcq_question_section_9.xml" value="0.22" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/question_section_6.xml" value="0.3129528985507246" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/questionslistview.xml" value="0.5" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/result_page.xml" value="0.333786231884058" />
@@ -38,6 +37,7 @@
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/student_dashboard_listview.xml" value="0.5" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/student_login_3.xml" value="0.33" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/student_signup_5.xml" value="0.333786231884058" />
+        <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/layout/test_test.xml" value="0.2391304347826087" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21614583333333334" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/mipmap-anydpi-v26/logo.xml" value="0.21614583333333334" />
         <entry key="..\:/QuEST/PROJECT/FINAL/AssessmentApp/app/src/main/res/mipmap-anydpi-v26/logo_round.xml" value="0.21614583333333334" />

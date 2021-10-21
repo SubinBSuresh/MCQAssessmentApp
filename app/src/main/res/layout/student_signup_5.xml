@@ -73,6 +73,7 @@
                 android:layout_marginTop="45dp"
                 android:background="@color/primary_color"
                 android:hint="Password"
+                android:inputType="textPassword"
                 android:padding="10dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -96,6 +97,7 @@
                 android:layout_marginTop="45dp"
                 android:background="@color/primary_color"
                 android:hint="Confirm password"
+                android:inputType="textPassword"
                 android:padding="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
