@@ -1,6 +1,10 @@
 package com.example.assessmentapp;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +32,8 @@ public class MainAssessmentPage extends AppCompatActivity {
     private TextView questionNo;
 
     private ProgressBar progressBar;
-
+    private TextView questionProgress;
+    private TextView assessmentName;
 
     Integer questionNumber = 0;
     Integer marksCount = 0;
@@ -41,7 +46,6 @@ public class MainAssessmentPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_assessment_page);
 
-
         btnPrevious = findViewById(R.id.btn_previousQuestion);
         btnNext = findViewById(R.id.btn_nextQuestion);
         radioGroup = findViewById(R.id.answer);
@@ -53,20 +57,21 @@ public class MainAssessmentPage extends AppCompatActivity {
         questionNo = findViewById(R.id.questionNumber);
 
         progressBar = findViewById(R.id.progressBar);
-
+        questionProgress = findViewById(R.id.tv_questionProgress);
+        assessmentName = findViewById(R.id.tv_assessmentName_display);
         Bundle extras = getIntent().getExtras();
         String assessmentMCQName = extras.getString("AssessmentName");
+        assessmentName.setText(assessmentMCQName);
 
 
         TheHelper dbHelper = new TheHelper(this);
         mcqQuestions = dbHelper.getMCQData(assessmentMCQName);
-         noOfQuestions = mcqQuestions.size();
+        noOfQuestions = mcqQuestions.size();
         Toast.makeText(getApplicationContext(), Integer.toString(noOfQuestions), Toast.LENGTH_SHORT).show();
 
 
         questionPrinter(questionNumber);
-
-
+        progressBar.setProgress(100 / noOfQuestions);
 
 //        BTN PREVIOUS
         btnPrevious.setEnabled(false);
@@ -74,10 +79,15 @@ public class MainAssessmentPage extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                progressBar.setProgress(progressBar.getProgress()-(progressBar.getMax()/10));
-                marksCount--;
+
+                //Decrement question number and fetch call question printer method
+                while(marksCount>0) {
+                    marksCount--;
+                }
                 questionNumber--;
                 questionPrinter(questionNumber);
+                //Update progress bar
+                progressBar.setProgress(progressBar.getProgress() - (progressBar.getMax() / noOfQuestions));
             }
         });
 
@@ -86,30 +96,64 @@ public class MainAssessmentPage extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.incrementProgressBy(100/noOfQuestions);
+                //Update progress bar
+                progressBar.incrementProgressBy(100 / noOfQuestions);
+                //Increment question number and fetch call question printer method
+                questionNumber++;
 
-                if(btnNext.getText() == "Submit"){
+
+                //Submit Quiz
+                if (btnNext.getText() == "Submit") {
                     btnPrevious.setEnabled(false);
                     Toast.makeText(getApplicationContext(), Integer.toString(marksCount), Toast.LENGTH_SHORT).show();
+
+                    //Custom Dialog
+                    Dialog submitDialog = new Dialog(MainAssessmentPage.this);
+                    submitDialog.setContentView(R.layout.custom_quiz_submit);
+                    submitDialog.setCancelable(false);
+                    submitDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    submitDialog.show();
+
+                    Button btnMCQCancel = submitDialog.findViewById(R.id.btn_student_MCQCancel);
+                    Button btnMCQConfirm = submitDialog.findViewById(R.id.btn_student_MCQSubmit);
+
+                    //Dialog Cancel
+                    btnMCQCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            submitDialog.cancel();
+                        }
+                    });
+                    //Dialog Confirm
+                    btnMCQConfirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getApplicationContext(), ResultPage_10.class);
+                            intent.putExtra("Marks", marksCount);
+                            startActivity(intent);
+                        }
+                    });
                 }
-                questionNumber++;
                 questionPrinter(questionNumber);
                 btnPrevious.setEnabled(true);
             }
         });
     }
 
+    //Method to push questions
     @SuppressLint("SetTextI18n")
     public void questionPrinter(Integer qNo) {
 
-        if(qNo<noOfQuestions) {
-            questionNo.setText(Integer.toString(qNo+1));
+        if (qNo < noOfQuestions) {
+            questionNo.setText(Integer.toString(qNo + 1));
             question.setText(mcqQuestions.get(qNo).get("mcq_question"));
             option1.setText(mcqQuestions.get(qNo).get("option1"));
             option2.setText(mcqQuestions.get(qNo).get("option2"));
             option3.setText(mcqQuestions.get(qNo).get("option3"));
             option4.setText(mcqQuestions.get(qNo).get("option4"));
+            questionProgress.setText((qNo + 1) + " of " + noOfQuestions + " questions");
 
+            //Get checked answer from RadioGroup
             radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -120,12 +164,14 @@ public class MainAssessmentPage extends AppCompatActivity {
                     }
                 }
             });
-            if(qNo+1 == noOfQuestions){
+            //Condition for setting button texts
+            if (qNo + 1 == noOfQuestions) {
                 btnNext.setText("Submit");
-            }else{
+            } else {
                 btnNext.setText("Next");
             }
-            if(qNo == 0){
+            // Condition for enabling previous button
+            if (qNo == 0) {
                 btnPrevious.setEnabled(false);
             }
         }

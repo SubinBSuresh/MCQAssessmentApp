@@ -16,31 +16,54 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
+            android:fontFamily="@font/lora"
             android:gravity="center"
             android:text="MCQ"
             android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_assessmentName_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/josefin_sans_bold"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#000000"
             android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_questionProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/button_primary"
+            android:textSize="12sp"
+            android:textStyle="bold|italic" />
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:elevation="10dp"
             android:max="100"
-            android:maxHeight="30dp"
+            android:maxHeight="50dp"
+            android:minHeight="30dp"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
+            android:progressTint="@color/button_primary"
             android:translationZ="2sp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="70dp"
             app:cardCornerRadius="10dp">
@@ -64,7 +87,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="5dp"
+                        android:fontFamily="@font/lora"
                         android:text="QNO"
                         android:textColor="@color/text_primary"
                         android:textSize="16sp" />
@@ -73,8 +97,7 @@
                         android:id="@+id/mcqQuestionPrint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
                         android:fontFamily="@font/lora"
                         android:text="Question here"
                         android:textColor="@color/text_primary"
@@ -88,14 +111,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp">
+                    android:layout_marginBottom="10dp">
 
                     <RadioButton
                         android:id="@+id/answer1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:defaultFocusHighlightEnabled="true"
                         android:fontFamily="@font/lora"
-                        android:text="Checkbox1"
+                        android:text="RadioButton1"
                         android:textSize="17sp" />
 
                     <RadioButton
@@ -103,7 +127,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:text="Checkbox2"
+                        android:text="RadioButton2"
                         android:textSize="17sp" />
 
                     <RadioButton
@@ -111,7 +135,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:text="Checkbox3"
+                        android:text="RadioButton3"
                         android:textSize="17sp" />
 
                     <RadioButton
@@ -119,7 +143,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lora"
-                        android:text="Checkbox4"
+                        android:text="RadioButton4"
                         android:textSize="17sp" />
                 </RadioGroup>
 
@@ -139,9 +163,10 @@
                 android:id="@+id/btn_previousQuestion"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="20dp"
                 android:backgroundTint="@color/button_primary"
                 android:elevation="10dp"
+                android:fontFamily="@font/cabin_bold"
                 android:text="Previous"
                 android:translationZ="2sp"
                 app:cornerRadius="30dp" />
@@ -150,9 +175,10 @@
                 android:id="@+id/btn_nextQuestion"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="20dp"
                 android:backgroundTint="@color/button_primary"
                 android:elevation="10dp"
+                android:fontFamily="@font/cabin_bold"
                 android:text="Next"
                 android:translationZ="2sp"
                 app:cornerRadius="30dp" />
