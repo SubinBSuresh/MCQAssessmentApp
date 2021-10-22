@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -25,6 +26,8 @@ public class MainAssessmentPage extends AppCompatActivity {
     private RadioGroup radioGroup;
     private TextView question;
     private TextView questionNo;
+
+    private ProgressBar progressBar;
 
 
     Integer questionNumber = 0;
@@ -49,6 +52,7 @@ public class MainAssessmentPage extends AppCompatActivity {
         question = findViewById(R.id.mcqQuestionPrint);
         questionNo = findViewById(R.id.questionNumber);
 
+        progressBar = findViewById(R.id.progressBar);
 
         Bundle extras = getIntent().getExtras();
         String assessmentMCQName = extras.getString("AssessmentName");
@@ -67,8 +71,10 @@ public class MainAssessmentPage extends AppCompatActivity {
 //        BTN PREVIOUS
         btnPrevious.setEnabled(false);
         btnPrevious.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                progressBar.setProgress(progressBar.getProgress()-(progressBar.getMax()/10));
                 marksCount--;
                 questionNumber--;
                 questionPrinter(questionNumber);
@@ -80,6 +86,7 @@ public class MainAssessmentPage extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.incrementProgressBy(100/noOfQuestions);
 
                 if(btnNext.getText() == "Submit"){
                     btnPrevious.setEnabled(false);
