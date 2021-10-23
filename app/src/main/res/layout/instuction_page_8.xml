@@ -12,16 +12,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="142dp"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="141dp"
-        android:layout_marginBottom="89dp"
+        android:fontFamily="@font/lora"
         android:gravity="center"
         android:text="Instructions"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textColor="#131313"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,10 +52,11 @@
         android:id="@+id/linearLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="43dp"
         android:orientation="vertical"
         android:padding="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_insruction">
 
@@ -68,10 +70,12 @@
                 android:id="@+id/tv_questions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
                 android:gravity="center"
                 android:text="1.Number of Questions:"
                 android:textAlignment="center"
-                android:textSize="16sp"
+                android:textColor="#000000"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -80,7 +84,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:fontFamily="@font/lora"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,10 +100,12 @@
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
                 android:gravity="center"
                 android:text="2.Total Time:"
                 android:textAlignment="center"
-                android:textSize="16sp"
+                android:textColor="#000000"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -105,7 +114,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:fontFamily="@font/lora"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -118,10 +130,12 @@
                 android:id="@+id/tv_mark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
                 android:gravity="center"
                 android:text="3.Total Mark:"
                 android:textAlignment="center"
-                android:textSize="16sp"
+                android:textColor="#000000"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -130,7 +144,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:fontFamily="@font/lora"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -144,10 +161,12 @@
                 android:id="@+id/tv_passmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
                 android:gravity="center"
                 android:text="4.Pass Mark:"
                 android:textAlignment="center"
-                android:textSize="24sp"
+                android:textColor="#000000"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -156,8 +175,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:fontFamily="@font/lora"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="18sp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lora"
+            android:text="5. All questions are compulsory"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lora"
+            android:text="6. Read all questions carefully"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

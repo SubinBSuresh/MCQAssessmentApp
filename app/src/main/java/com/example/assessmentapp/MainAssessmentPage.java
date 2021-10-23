@@ -67,7 +67,6 @@ public class MainAssessmentPage extends AppCompatActivity {
         TheHelper dbHelper = new TheHelper(this);
         mcqQuestions = dbHelper.getMCQData(assessmentMCQName);
         noOfQuestions = mcqQuestions.size();
-        Toast.makeText(getApplicationContext(), Integer.toString(noOfQuestions), Toast.LENGTH_SHORT).show();
 
 
         questionPrinter(questionNumber);
@@ -105,7 +104,6 @@ public class MainAssessmentPage extends AppCompatActivity {
                 //Submit Quiz
                 if (btnNext.getText() == "Submit") {
                     btnPrevious.setEnabled(false);
-                    Toast.makeText(getApplicationContext(), Integer.toString(marksCount), Toast.LENGTH_SHORT).show();
 
                     //Custom Dialog
                     Dialog submitDialog = new Dialog(MainAssessmentPage.this);
@@ -130,6 +128,8 @@ public class MainAssessmentPage extends AppCompatActivity {
                         public void onClick(View view) {
                             Intent intent = new Intent(getApplicationContext(), ResultPage_10.class);
                             intent.putExtra("Marks", marksCount);
+                            intent.putExtra("StudentName",extras.getString("StudentName"));
+                            intent.putExtra("AssessmentName",assessmentMCQName);
                             startActivity(intent);
                         }
                     });

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AssessmentApp">
         <activity
+            android:name=".StudentMarks"
+            android:exported="false" />
+        <activity
             android:name=".MainAssessmentPage"
             android:exported="false" />
         <activity
@@ -45,7 +48,6 @@
         <activity
             android:name=".LandingPage_1"
             android:exported="true" />
-
         <activity
             android:name=".Splash"
             android:exported="true">

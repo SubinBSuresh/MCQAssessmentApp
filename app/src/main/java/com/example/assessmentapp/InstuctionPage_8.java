@@ -31,6 +31,18 @@ public class InstuctionPage_8 extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         String assessmentName = extras.getString("Assessment");
+        String time = extras.getString("AssessmentDuration");
+        TheHelper dbHelper = new TheHelper(this);
+        Integer questionCount = dbHelper.getQuestionCount(assessmentName);
+
+
+
+        tvNoOfQuestions.setText(Integer.toString(questionCount));
+        tvTotalTime.setText(time + " Minutes");
+        tvTotalMarks.setText(Integer.toString(questionCount));
+        Integer passMark = (int)( questionCount*0.7) ;
+
+        tvPassMarks.setText(Integer.toString(passMark));
         btnstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,6 +50,7 @@ public class InstuctionPage_8 extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), MainAssessmentPage.class);
                 intent.putExtra("AssessmentName", assessmentName);
+                intent.putExtra("StudentName",extras.getString("StudentName"));
                 startActivity(intent);
             }
         });

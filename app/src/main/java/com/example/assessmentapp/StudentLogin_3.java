@@ -77,7 +77,7 @@ public class StudentLogin_3 extends AppCompatActivity {
     }
     private void goToMain(String name) {
         Intent intent = new Intent(getApplicationContext(),StudentDashboard_11.class);
-        intent.putExtra("Student Name",name);
+        intent.putExtra("StudentName",name);
         startActivity(intent);
         finish();
     }

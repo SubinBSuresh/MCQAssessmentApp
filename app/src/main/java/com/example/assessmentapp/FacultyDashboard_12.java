@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
@@ -47,6 +48,15 @@ public class FacultyDashboard_12 extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Logging out", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),FacultyLogin_2.class));
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent = new Intent(getApplicationContext(),StudentMarks.class);
+                intent.putExtra("Assessment", AssessmentList.get(position).get("assessment_name_input"));
+                startActivity(intent);
             }
         });
     }

@@ -74,11 +74,11 @@ public class TheHelper extends SQLiteOpenHelper {
 
     //Student mark details
     private static final String MARK_LIST_TABLE = "MARKLIST";
-    public static final String STUDENT_EMAIL = "student_email";
+    public static final String STUDENT_NAME = "student_name";
     public static final String STUDENT_ASSESSMENT = "student_assessment";
     public static final String STUDENT_MARKS = "student_marks";
     //CREATE TABLE
-    private static final String CREATE_STUDENT_MARKLIST = "CREATE TABLE "+MARK_LIST_TABLE+"( student_email,student_assessment,student_marks)";
+    private static final String CREATE_STUDENT_MARKLIST = "CREATE TABLE "+MARK_LIST_TABLE+"( student_name ,student_assessment ,student_marks )";
     //DROP TABLE
     private static final String DROP_STUDENT_MARKLIST = "DROP TABLE IF EXISTS "+MARK_LIST_TABLE;
 
@@ -155,6 +155,15 @@ public class TheHelper extends SQLiteOpenHelper {
             mcqQuestions.add(mcqData);
         }
         return mcqQuestions;
+    }
+
+
+    public Integer getQuestionCount(String assessmentName){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+//        long numRows = DatabaseUtils.longForQuery(sqLiteDatabase, "SELECT COUNT(*) FROM "+TABLE_MCQ_QUESTIONS_INPUT+ " where assessment_name = "+assessmentName, null);
+        Cursor cursor = sqLiteDatabase.query(TABLE_MCQ_QUESTIONS_INPUT,new String[]{KEY_QUESTION}, KEY_ASSESSMENTNAME+"=?",new String[]{assessmentName},null,null,null,null);
+        return cursor.getCount();
     }
 
     //<-----------------------------------------------------------------Tineesha--------------------------------------------------->
@@ -249,11 +258,11 @@ public class TheHelper extends SQLiteOpenHelper {
     }
     //<-----------------------------------------------------------------Subin--------------------------------------------------->
 
-    public void insertStudentMarklist(String email, String assessmentName, String marks) {
+    public void insertStudentMarklist(String name, String assessmentName, String marks) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(STUDENT_EMAIL, email);
+        cv.put(STUDENT_NAME, name);
         cv.put(STUDENT_ASSESSMENT, assessmentName);
         cv.put(STUDENT_MARKS, marks);
 
@@ -263,17 +272,30 @@ public class TheHelper extends SQLiteOpenHelper {
 
     //Retrieve Assessment details
     public ArrayList<HashMap<String, String>> getStudentMarklist(String assessmentName) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         ArrayList<HashMap<String, String>> marksList = new ArrayList<>();
 
-        String query = "select student_email,student_marks from " + MARK_LIST_TABLE+" where student_assessment = "+ assessmentName;
-        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+/*        String query = "select student_name,student_marks from " + MARK_LIST_TABLE+" where student_assessment = "+ assessmentName;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);*/
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT student_name,student_marks FROM " + MARK_LIST_TABLE + " WHERE student_assessment = ?", new String[]{assessmentName});
+
         while (cursor.moveToNext()) {
             HashMap<String, String> marks = new HashMap<>();
-            marks.put(STUDENT_EMAIL, cursor.getString(0));
+            marks.put(STUDENT_NAME, cursor.getString(0));
             marks.put(STUDENT_MARKS, cursor.getString(1));
             marksList.add(marks);
         }
         return marksList;
+    }
+
+    //Eligibility checker
+    public String eligibility(String studentName, String assessmentName){
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        String mark = "";
+        Cursor cursor = myDB.rawQuery("SELECT  student_marks FROM " + MARK_LIST_TABLE + " WHERE student_name = ? AND student_assessment = ?", new String[]{studentName, assessmentName});
+        while (cursor.moveToNext()) {
+             mark = cursor.getString(0);
+        }
+        return mark;
     }
 }
