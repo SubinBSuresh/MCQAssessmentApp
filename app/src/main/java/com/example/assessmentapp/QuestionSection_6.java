@@ -26,7 +26,6 @@ public class QuestionSection_6 extends AppCompatActivity {
     String duration;
     String dueDate;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,19 +41,16 @@ public class QuestionSection_6 extends AppCompatActivity {
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), FacultyLogin_2.class));
+                startActivity(new Intent(getApplicationContext(), FacultyDashboard_12.class));
             }
         });
-
 
         //Database Helper
         final TheHelper assessmentDetailsdbHelper = new TheHelper(this);
 
-
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 //Adding Custom dialog
                 Dialog submitDialog = new Dialog(QuestionSection_6.this);
@@ -110,8 +106,6 @@ public class QuestionSection_6 extends AppCompatActivity {
                         submitDialog.cancel();
                     }
                 });
-
-
             }
         });
     }

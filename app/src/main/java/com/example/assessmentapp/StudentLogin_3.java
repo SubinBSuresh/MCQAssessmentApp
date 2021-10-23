@@ -29,27 +29,27 @@ public class StudentLogin_3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_login_3);
-        imgBack=findViewById(R.id.backArrow);
-        StEmail=findViewById(R.id.et_student_loginEmail);
-        StPassword=findViewById(R.id.et_student_loginPassword);
-        btnLogin=findViewById(R.id.btn_student_login);
+        imgBack = findViewById(R.id.backArrow);
+        StEmail = findViewById(R.id.et_student_loginEmail);
+        StPassword = findViewById(R.id.et_student_loginPassword);
+        btnLogin = findViewById(R.id.btn_student_login);
         db1 = new TheHelper(this);
-        sp1 = getSharedPreferences("login",MODE_PRIVATE);
+        sp1 = getSharedPreferences("login", MODE_PRIVATE);
         /*if(sp1.getBoolean("logged",false)){
             goToMain();
         }*/
 
-        tvSignUp=findViewById(R.id.btn_student_signUp);
+        tvSignUp = findViewById(R.id.btn_student_signUp);
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),StudentSignup_5.class));
+                startActivity(new Intent(getApplicationContext(), StudentSignup_5.class));
             }
         });
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                startActivity(new Intent(getApplicationContext(), LandingPage_1.class));
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -58,26 +58,26 @@ public class StudentLogin_3 extends AppCompatActivity {
 
                 String email = StEmail.getText().toString();
                 String password = StPassword.getText().toString();
-                if(email.equals("")||password.equals("")){
+                if (email.equals("") || password.equals("")) {
                     Toast.makeText(getApplicationContext(), "Please enter credentials", Toast.LENGTH_LONG).show();
-                }else{
-                    Boolean resultLogin = db1.checkStudentUsernamePassword(email,password);
-                    if (resultLogin==true){
+                } else {
+                    Boolean resultLogin = db1.checkStudentUsernamePassword(email, password);
+                    if (resultLogin == true) {
                         studentName = db1.getStudentName(email);
                         goToMain(studentName);
-                        sp1.edit().putBoolean("logged",true).apply();
+                        sp1.edit().putBoolean("logged", true).apply();
                         finish();
-                    }else{
+                    } else {
                         Toast.makeText(getApplicationContext(), "Invalid user", Toast.LENGTH_LONG).show();
                     }
                 }
             }
         });
-
     }
+
     private void goToMain(String name) {
-        Intent intent = new Intent(getApplicationContext(),StudentDashboard_11.class);
-        intent.putExtra("StudentName",name);
+        Intent intent = new Intent(getApplicationContext(), StudentDashboard_11.class);
+        intent.putExtra("StudentName", name);
         startActivity(intent);
         finish();
     }

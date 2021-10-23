@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_color"
     tools:context=".FacultyDashboard_12">
 
     <LinearLayout
@@ -17,35 +16,43 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"
+            android:background="@drawable/mcq_input_style"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView"
+            <TextView
+                android:id="@+id/tv_facultyName_dashboardView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/user" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/custom_user_profile"
+                android:fontFamily="@font/josefin_sans_bold"
+                android:gravity="center"
+                android:text="S"
+                android:textAlignment="center"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/tv_assessmentName_facultyDashboard"
-                android:layout_width="wrap_content"
+                android:layout_width="308dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left|bottom"
-                android:layout_marginLeft="65dp"
-                android:layout_marginRight="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="30dp"
                 android:fontFamily="@font/lora"
+                android:gravity="center"
                 android:text="Faculty Dashboard"
                 android:textColor="@color/text_primary"
-                android:textSize="20dp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/ib_faculty_logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="top|left"
-                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/logout"
                 android:clickable="true" />
 
@@ -57,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/button_primary"
             android:fontFamily="@font/cabin_bold"
@@ -68,7 +76,7 @@
             android:id="@+id/tv_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:text="Ongoing"
             android:textSize="18dp" />

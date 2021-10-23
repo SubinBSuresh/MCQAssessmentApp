@@ -13,7 +13,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,30 +30,24 @@ public class StudentDashboard_11 extends AppCompatActivity {
         //list on click move to instruction Page
 //        ListView assessmentlist=findViewById(R.id.assessmentList);
 
-        TextView tvStudentName = findViewById(R.id.tv_studentNameDisplay);
+        TextView tvStudentName = findViewById(R.id.tv_studentNameProfileDisplay);
 
         Bundle extras = getIntent().getExtras();
-
         studentName = extras.getString("StudentName");
-        tvStudentName.setText(studentName);
-
+        tvStudentName.setText(Character.toString(studentName.charAt(0)));
 
 
         TheHelper dbHelper = new TheHelper(this);
         ArrayList<HashMap<String, String>> AssessmentList = dbHelper.getAssessmentList();
         ListView listView = findViewById(R.id.lv_student_assessmentList);
-        ListAdapter listAdapter = new SimpleAdapter(StudentDashboard_11.this, AssessmentList, R.layout.student_dashboard_listview, new String[]{"assessment_name_input", "due_date", "duration"}, new int[]{R.id.tv_student_dashboardAssessmentName, R.id.tv_student_dashboardAssessmentDueDate, R.id.tv_student_dashboardAssessmentDuration});
+        ListAdapter listAdapter = new SimpleAdapter(StudentDashboard_11.this, AssessmentList, R.layout.custom_student_listview, new String[]{"assessment_name_input", "due_date", "duration"}, new int[]{R.id.tv_student_dashboardAssessmentName, R.id.tv_student_dashboardAssessmentDueDate, R.id.tv_student_dashboardAssessmentDuration});
         listView.setAdapter(listAdapter);
-
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String eligibility = dbHelper.eligibility(studentName,AssessmentList.get(position).get("assessment_name_input"));
-                if(!eligibility.equals("")){
-                    Toast.makeText(getApplicationContext(), "You have already done this test", Toast.LENGTH_SHORT).show();
-
+                String eligibility = dbHelper.eligibility(studentName, AssessmentList.get(position).get("assessment_name_input"));
+                if (!eligibility.equals("")) {
                     Dialog submitDialog = new Dialog(StudentDashboard_11.this);
                     submitDialog.setContentView(R.layout.custom_mark_dialog);
                     submitDialog.setCancelable(false);
@@ -70,9 +63,7 @@ public class StudentDashboard_11 extends AppCompatActivity {
                             submitDialog.cancel();
                         }
                     });
-
-
-                }else{
+                } else {
                     Intent intent = new Intent(StudentDashboard_11.this, InstuctionPage_8.class);
                     intent.putExtra("Assessment", AssessmentList.get(position).get("assessment_name_input"));
                     intent.putExtra("AssessmentDuration", AssessmentList.get(position).get("duration"));

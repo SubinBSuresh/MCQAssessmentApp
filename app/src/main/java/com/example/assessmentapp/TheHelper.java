@@ -78,9 +78,9 @@ public class TheHelper extends SQLiteOpenHelper {
     public static final String STUDENT_ASSESSMENT = "student_assessment";
     public static final String STUDENT_MARKS = "student_marks";
     //CREATE TABLE
-    private static final String CREATE_STUDENT_MARKLIST = "CREATE TABLE "+MARK_LIST_TABLE+"( student_name ,student_assessment ,student_marks )";
+    private static final String CREATE_STUDENT_MARKLIST = "CREATE TABLE " + MARK_LIST_TABLE + "( student_name ,student_assessment ,student_marks )";
     //DROP TABLE
-    private static final String DROP_STUDENT_MARKLIST = "DROP TABLE IF EXISTS "+MARK_LIST_TABLE;
+    private static final String DROP_STUDENT_MARKLIST = "DROP TABLE IF EXISTS " + MARK_LIST_TABLE;
 
 
     //CONSTRUCTOR
@@ -132,7 +132,7 @@ public class TheHelper extends SQLiteOpenHelper {
     }
 
 
-    //SAVE MCQ
+    //Retrieve MCQ
     public ArrayList<HashMap<String, String>> getMCQData(String assessmentName) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         ArrayList<HashMap<String, String>> mcqQuestions = new ArrayList<>();
@@ -140,8 +140,7 @@ public class TheHelper extends SQLiteOpenHelper {
 //        String query = "select mcq_question,option1,option2, option3,option4, correct_answer from " + TABLE_MCQ_QUESTIONS_INPUT+ " where "+KEY_ASSESSMENTNAME+ " = " + assessmentName;
 //        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
-        Cursor cursor = sqLiteDatabase.query(TABLE_MCQ_QUESTIONS_INPUT,new String[]{KEY_QUESTION,KEY_OPTION1,KEY_OPTION2,KEY_OPTION3,KEY_OPTION4,KEY_CORRECTANSWER}, KEY_ASSESSMENTNAME+"=?",new String[]{assessmentName},null,null,null,null);
-
+        Cursor cursor = sqLiteDatabase.query(TABLE_MCQ_QUESTIONS_INPUT, new String[]{KEY_QUESTION, KEY_OPTION1, KEY_OPTION2, KEY_OPTION3, KEY_OPTION4, KEY_CORRECTANSWER}, KEY_ASSESSMENTNAME + "=?", new String[]{assessmentName}, null, null, null, null);
 
         while ((cursor.moveToNext())) {
             HashMap<String, String> mcqData = new HashMap<>();
@@ -158,11 +157,10 @@ public class TheHelper extends SQLiteOpenHelper {
     }
 
 
-    public Integer getQuestionCount(String assessmentName){
+    public Integer getQuestionCount(String assessmentName) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-
 //        long numRows = DatabaseUtils.longForQuery(sqLiteDatabase, "SELECT COUNT(*) FROM "+TABLE_MCQ_QUESTIONS_INPUT+ " where assessment_name = "+assessmentName, null);
-        Cursor cursor = sqLiteDatabase.query(TABLE_MCQ_QUESTIONS_INPUT,new String[]{KEY_QUESTION}, KEY_ASSESSMENTNAME+"=?",new String[]{assessmentName},null,null,null,null);
+        Cursor cursor = sqLiteDatabase.query(TABLE_MCQ_QUESTIONS_INPUT, new String[]{KEY_QUESTION}, KEY_ASSESSMENTNAME + "=?", new String[]{assessmentName}, null, null, null, null);
         return cursor.getCount();
     }
 
@@ -256,6 +254,17 @@ public class TheHelper extends SQLiteOpenHelper {
 
         return cursor.getCount() > 0;
     }
+
+
+    public String getSFacultyName(String email) {
+        String name = "";
+        SQLiteDatabase myDB = this.getReadableDatabase();
+        Cursor cursor = myDB.rawQuery("SELECT username FROM " + FACULTY_TABLE_NAME + " WHERE email = ?", new String[]{email});
+        while (cursor.moveToNext()) {
+            name = cursor.getString(0);
+        }
+        return name;
+    }
     //<-----------------------------------------------------------------Subin--------------------------------------------------->
 
     public void insertStudentMarklist(String name, String assessmentName, String marks) {
@@ -289,12 +298,12 @@ public class TheHelper extends SQLiteOpenHelper {
     }
 
     //Eligibility checker
-    public String eligibility(String studentName, String assessmentName){
+    public String eligibility(String studentName, String assessmentName) {
         SQLiteDatabase myDB = this.getReadableDatabase();
         String mark = "";
         Cursor cursor = myDB.rawQuery("SELECT  student_marks FROM " + MARK_LIST_TABLE + " WHERE student_name = ? AND student_assessment = ?", new String[]{studentName, assessmentName});
         while (cursor.moveToNext()) {
-             mark = cursor.getString(0);
+            mark = cursor.getString(0);
         }
         return mark;
     }

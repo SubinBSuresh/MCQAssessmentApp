@@ -3,8 +3,10 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/cabin</item>
         <item>@font/cabin_bold</item>
+        <item>@font/cherry_swash_bold</item>
         <item>@font/comfortaa_bold</item>
         <item>@font/josefin_sans_bold</item>
+        <item>@font/londrina_solid</item>
         <item>@font/lora</item>
     </array>
 </resources>

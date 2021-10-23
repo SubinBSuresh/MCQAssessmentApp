@@ -35,8 +35,6 @@ public class InstuctionPage_8 extends AppCompatActivity {
         TheHelper dbHelper = new TheHelper(this);
         Integer questionCount = dbHelper.getQuestionCount(assessmentName);
 
-
-
         tvNoOfQuestions.setText(Integer.toString(questionCount));
         tvTotalTime.setText(time + " Minutes");
         tvTotalMarks.setText(Integer.toString(questionCount));
@@ -46,9 +44,9 @@ public class InstuctionPage_8 extends AppCompatActivity {
         btnstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Your Assessment Starts", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Starting assessment", Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(getApplicationContext(), MainAssessmentPage.class);
+                Intent intent = new Intent(getApplicationContext(), MainAssessmentPage_9.class);
                 intent.putExtra("AssessmentName", assessmentName);
                 intent.putExtra("StudentName",extras.getString("StudentName"));
                 startActivity(intent);

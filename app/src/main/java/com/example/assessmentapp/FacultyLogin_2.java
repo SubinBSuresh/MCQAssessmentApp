@@ -13,66 +13,70 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FacultyLogin_2 extends AppCompatActivity {
 
-        ImageView imgBack;
-        Button tvSignUp;
-        EditText useremail;
-        EditText passwordLogin;
-        Button btnLogin;
-        SharedPreferences sp;
+    ImageView imgBack;
+    Button tvSignUp;
+    EditText useremail;
+    EditText passwordLogin;
+    Button btnLogin;
+    SharedPreferences sp;
+    String facultyName;
+    TheHelper db;
 
-        TheHelper db;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.faculty_login_2);
+        db = new TheHelper(this);
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.faculty_login_2);
-            db = new TheHelper(this);
-
-            sp = getSharedPreferences("login", MODE_PRIVATE);
+        sp = getSharedPreferences("login", MODE_PRIVATE);
         /*if(sp.getBoolean("logged",false)){
             goToMain();
         }*/
-            useremail = findViewById(R.id.et_faculty_loginEmail);
-            passwordLogin = findViewById(R.id.et_faculty_loginPassword);
-            btnLogin = findViewById(R.id.btn_faculty_login);
-            imgBack = findViewById(R.id.backArrow);
-            tvSignUp = findViewById(R.id.btn_faculty_signUp);
-            imgBack.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(),LandingPage_1.class));
-                }
-            });
-            tvSignUp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(), FacultySignup_4.class));
-                }
-            });
-            btnLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String facultyemail = useremail.getText().toString();
-                    String facultypassword = passwordLogin.getText().toString();
-                    if (facultyemail.equals("") || facultypassword.equals("")) {
-                        Toast.makeText(getApplicationContext(), "Please enter credentials", Toast.LENGTH_LONG).show();
+        useremail = findViewById(R.id.et_faculty_loginEmail);
+        passwordLogin = findViewById(R.id.et_faculty_loginPassword);
+        btnLogin = findViewById(R.id.btn_faculty_login);
+        imgBack = findViewById(R.id.backArrow);
+        tvSignUp = findViewById(R.id.btn_faculty_signUp);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), LandingPage_1.class));
+            }
+        });
+        tvSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), FacultySignup_4.class));
+            }
+        });
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String facultyemail = useremail.getText().toString();
+                String facultypassword = passwordLogin.getText().toString();
+                if (facultyemail.equals("") || facultypassword.equals("")) {
+                    Toast.makeText(getApplicationContext(), "Please enter credentials", Toast.LENGTH_LONG).show();
+                } else {
+                    Boolean resultLogin = db.checkFacultyUsernamePassword(facultyemail, facultypassword);
+                    if (resultLogin == true) {
+
+                        facultyName = db.getSFacultyName(facultyemail);
+                        goToMain();
+                        sp.edit().putBoolean("logged", true).apply();
+                        finish();
                     } else {
-                        Boolean resultLogin = db.checkFacultyUsernamePassword(facultyemail, facultypassword);
-                        if (resultLogin == true) {
-                            goToMain();
-                            sp.edit().putBoolean("logged", true).apply();
-                            finish();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Invalid user", Toast.LENGTH_LONG).show();
-                        }
+                        Toast.makeText(getApplicationContext(), "Invalid user", Toast.LENGTH_LONG).show();
                     }
                 }
-            });
-        }
+            }
+        });
+    }
 
-        private void goToMain() {
-            startActivity(new Intent(getApplicationContext(), FacultyDashboard_12.class));
-            finish();
-        }
+    private void goToMain() {
+        Intent intent = new Intent(getApplicationContext(), FacultyDashboard_12.class);
+        intent.putExtra("FacultyName", facultyName);
+        startActivity(intent);
+        finish();
+    }
 
 }

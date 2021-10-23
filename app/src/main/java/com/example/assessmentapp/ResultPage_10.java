@@ -1,5 +1,6 @@
 package com.example.assessmentapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,9 @@ public class ResultPage_10 extends AppCompatActivity {
     private TextView tvResult;
     private Button btnGoBack;
     private Integer marks;
+    private Integer numberOfQuestions;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +28,9 @@ public class ResultPage_10 extends AppCompatActivity {
         TheHelper dbHelper = new TheHelper(this);
         Bundle extras = getIntent().getExtras();
         marks = extras.getInt("Marks");
+        numberOfQuestions = extras.getInt("TotalQuestions");
 
-        tvResult.setText(Integer.toString(marks));
+        tvResult.setText(marks + " / " + numberOfQuestions);
         btnGoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,9 +40,5 @@ public class ResultPage_10 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
-
-
 }

@@ -6,46 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".StudentDashboard_11">
 
-    <ImageView
-        android:id="@+id/image_student"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="320dp"
-        android:background="@drawable/user"
-        android:backgroundTint="#6E6767"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/btnback"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/tv_view"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="142dp"
-        android:fontFamily="@font/lora"
-        android:text="Student Dashboard"
-        android:textColor="@color/text_primary"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:background="@drawable/mcq_input_style"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/btnback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_studentNameProfileDisplay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/custom_user_profile"
+            android:fontFamily="@font/josefin_sans_bold"
+            android:gravity="center"
+            android:text="S"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_view"
+            android:layout_width="308dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/lora"
+            android:gravity="center"
+            android:text="Student Dashboard"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnback"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/logout" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -54,17 +58,18 @@
         android:layout_marginTop="45dp"
         android:layout_marginBottom="17dp"
         android:background="@color/white"
+        android:divider="#00000000"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_view">
+        app:layout_constraintTop_toBottomOf="@+id/ll">
 
         <TextView
             android:id="@+id/tv_assement_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginBottom="10dp"
             android:text="Assessment Details"
             android:textColor="@color/text_primary"
@@ -76,6 +81,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:divider="#00000000"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -84,13 +90,5 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_studentNameDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/text_primary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_student" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,14 +12,13 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainAssessmentPage extends AppCompatActivity {
+public class MainAssessmentPage_9 extends AppCompatActivity {
 
     private Button btnPrevious;
     private Button btnNext;
@@ -44,7 +43,7 @@ public class MainAssessmentPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_assessment_page);
+        setContentView(R.layout.main_assessment_page_9);
 
         btnPrevious = findViewById(R.id.btn_previousQuestion);
         btnNext = findViewById(R.id.btn_nextQuestion);
@@ -78,9 +77,8 @@ public class MainAssessmentPage extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-
                 //Decrement question number and fetch call question printer method
-                while(marksCount>0) {
+                while (marksCount > 0) {
                     marksCount--;
                 }
                 questionNumber--;
@@ -89,7 +87,6 @@ public class MainAssessmentPage extends AppCompatActivity {
                 progressBar.setProgress(progressBar.getProgress() - (progressBar.getMax() / noOfQuestions));
             }
         });
-
 
         //BTN NEXT
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -100,13 +97,12 @@ public class MainAssessmentPage extends AppCompatActivity {
                 //Increment question number and fetch call question printer method
                 questionNumber++;
 
-
                 //Submit Quiz
                 if (btnNext.getText() == "Submit") {
                     btnPrevious.setEnabled(false);
 
                     //Custom Dialog
-                    Dialog submitDialog = new Dialog(MainAssessmentPage.this);
+                    Dialog submitDialog = new Dialog(MainAssessmentPage_9.this);
                     submitDialog.setContentView(R.layout.custom_quiz_submit);
                     submitDialog.setCancelable(false);
                     submitDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -128,8 +124,9 @@ public class MainAssessmentPage extends AppCompatActivity {
                         public void onClick(View view) {
                             Intent intent = new Intent(getApplicationContext(), ResultPage_10.class);
                             intent.putExtra("Marks", marksCount);
-                            intent.putExtra("StudentName",extras.getString("StudentName"));
-                            intent.putExtra("AssessmentName",assessmentMCQName);
+                            intent.putExtra("TotalQuestions", noOfQuestions);
+                            intent.putExtra("StudentName", extras.getString("StudentName"));
+                            intent.putExtra("AssessmentName", assessmentMCQName);
                             startActivity(intent);
                         }
                     });
@@ -175,6 +172,5 @@ public class MainAssessmentPage extends AppCompatActivity {
                 btnPrevious.setEnabled(false);
             }
         }
-
     }
 }
