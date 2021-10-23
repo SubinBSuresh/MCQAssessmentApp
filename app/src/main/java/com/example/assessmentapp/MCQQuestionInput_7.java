@@ -45,17 +45,13 @@ public class MCQQuestionInput_7 extends AppCompatActivity {
         //Database Helper
         final TheHelper mcqdbHelper = new TheHelper(this);
 
-
         //Converting the question number to display on textview
         mcqQuestionNumberString = String.valueOf(mcqQuestionCount);
         tvFacultyMCQNumber.setText(mcqQuestionNumberString);
 
-
         tvFacultyMCQNumber.setText(String.valueOf(mcqQuestionCount));
 
         //Getting the database name from previous page
-
-
         // Saving MCQ Questions one by one
         btnFacultyMCQOneQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +95,6 @@ public class MCQQuestionInput_7 extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Cannot input", Toast.LENGTH_SHORT).show();
                 }
             }
-
         });
 
 
@@ -138,7 +133,5 @@ public class MCQQuestionInput_7 extends AppCompatActivity {
                 });
             }
         });
-
-
     }
 }

@@ -25,8 +25,6 @@ public class LandingPage_1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), StudentLogin_3.class));
-//                startActivity(new Intent(getApplicationContext(), StudentDashboard_11.class));
-
             }
         });
 
@@ -35,8 +33,6 @@ public class LandingPage_1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), FacultyLogin_2.class));
-//                startActivity(new Intent(getApplicationContext(), FacultyDashboard_12.class));
-
             }
         });
 

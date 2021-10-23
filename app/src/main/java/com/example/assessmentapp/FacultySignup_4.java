@@ -21,7 +21,6 @@ public class FacultySignup_4 extends AppCompatActivity {
     private EditText etFPassword;
     private EditText etRepassword;
 
-
     SharedPreferences sp;
     private TheHelper db;
 

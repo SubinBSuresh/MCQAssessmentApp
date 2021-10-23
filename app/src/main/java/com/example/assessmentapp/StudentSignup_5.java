@@ -28,38 +28,37 @@ public class StudentSignup_5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_signup_5);
         db = new TheHelper(this);
-        imgBack=findViewById(R.id.backArrow);
+        imgBack = findViewById(R.id.backArrow);
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        sp1 = getSharedPreferences("Registered",MODE_PRIVATE);
+        sp1 = getSharedPreferences("Registered", MODE_PRIVATE);
        /* if (sp1.getBoolean("registered",false)){
             goToMain();
         }*/
 
 
-        etName=findViewById(R.id.et_student_signUpName);
-        etEmail=findViewById(R.id.et_student_signUpEmail);
-        etPassword=findViewById(R.id.et_student_signUpPassword);
-        etRepassword=findViewById(R.id.et_student_signUpConfirmPassword);
-        btnSignUp=findViewById(R.id.btn_studentSignUp);
+        etName = findViewById(R.id.et_student_signUpName);
+        etEmail = findViewById(R.id.et_student_signUpEmail);
+        etPassword = findViewById(R.id.et_student_signUpPassword);
+        etRepassword = findViewById(R.id.et_student_signUpConfirmPassword);
+        btnSignUp = findViewById(R.id.btn_studentSignUp);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String user = etName.getText().toString();
-                String  email= etEmail.getText().toString();
+                String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
                 String repassword = etRepassword.getText().toString();
 
-
-                if(user.equals("")|| email.equals("") || password.equals("")||repassword.equals("")){
+                if (user.equals("") || email.equals("") || password.equals("") || repassword.equals("")) {
                     Toast.makeText(getApplicationContext(), "Fill all the Fields", Toast.LENGTH_LONG).show();
-                }else{
-                    if(password.equals(repassword)) {
-                        Boolean userCheckResult =db.checkStudentUsername(user);
+                } else {
+                    if (password.equals(repassword)) {
+                        Boolean userCheckResult = db.checkStudentUsername(user);
                         if (userCheckResult == false) {
                             Boolean regResult = db.insertStudentData(user, email, password);
                             if (regResult == true) {
@@ -74,16 +73,16 @@ public class StudentSignup_5 extends AppCompatActivity {
                         } else {
                             Toast.makeText(getApplicationContext(), "User already exists Please LOGIN", Toast.LENGTH_SHORT).show();
                         }
-                    }else {
+                    } else {
                         Toast.makeText(getApplicationContext(), "Passwords Do not Match", Toast.LENGTH_LONG).show();
                     }
                 }
             }
-
         });
     }
+
     private void goToMain() {
-        startActivity(new Intent(getApplicationContext(),StudentDashboard_11.class));
+        startActivity(new Intent(getApplicationContext(), StudentDashboard_11.class));
         finish();
     }
 }
