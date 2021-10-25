@@ -54,10 +54,11 @@ public class StudentSignup_5 extends AppCompatActivity {
                 String password = etPassword.getText().toString();
                 String repassword = etRepassword.getText().toString();
 
-                // Password Checking here
+                // Empty or not
                 if (user.equals("") || email.equals("") || password.equals("") || repassword.equals("")) {
                     Toast.makeText(getApplicationContext(), "Fill all the Fields", Toast.LENGTH_LONG).show();
                 } else {
+                    // Password Checking here
                     if (password.equals(repassword)) {
                         Boolean userCheckResult = db.checkStudentUsername(user);
                         if (userCheckResult == false) {
