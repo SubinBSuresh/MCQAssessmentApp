@@ -50,6 +50,7 @@ public class FacultyDashboard_12 extends AppCompatActivity {
             }
         });
 
+        //onclick
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
