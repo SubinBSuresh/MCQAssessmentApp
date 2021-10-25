@@ -41,7 +41,7 @@ public class FacultyDashboard_12 extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), QuestionSection_6.class));
             }
         });
-
+    //logout
         facultyLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
