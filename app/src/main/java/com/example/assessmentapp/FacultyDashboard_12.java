@@ -41,7 +41,7 @@ public class FacultyDashboard_12 extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), QuestionSection_6.class));
             }
         });
-
+    //logout implementations
         facultyLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,6 +50,7 @@ public class FacultyDashboard_12 extends AppCompatActivity {
             }
         });
 
+        //onclick
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
