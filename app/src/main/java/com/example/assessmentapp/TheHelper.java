@@ -307,4 +307,13 @@ public class TheHelper extends SQLiteOpenHelper {
         }
         return mark;
     }
+
+
+    //Delete assessment
+    public void deleteAssessment(String assessmentName){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(MARK_LIST_TABLE,STUDENT_ASSESSMENT+ "=?", new String[]{java.lang.String.valueOf(assessmentName)});
+        sqLiteDatabase.delete(TABLE_NAME,KEY_ASSESSMENT_NAME+"=?", new String[]{java.lang.String.valueOf(assessmentName)});
+        sqLiteDatabase.delete(TABLE_MCQ_QUESTIONS_INPUT,KEY_ASSESSMENTNAME+"=?",new String[]{java.lang.String.valueOf(assessmentName)});
+    }
 }
